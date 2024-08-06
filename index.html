@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>axios tutorial</h1>
+    <script>
+
+
+        const url = 'https://reqres.in/api/users'
+        const payload = {
+
+            "name": "dumbeldore",
+            "job": "villain",
+            "id": "999",
+            "createdAt": "2024-08-06"
+        }
+        // get request
+        axios.get(url)
+            .then(res => {
+                console.log(res.data)
+            }).catch(error => {
+                console.log("error fetching data", error)
+            })
+
+
+        // post request
+        axios.post(url, payload)
+            .then(res => {
+                console.log(res.data)
+            }).catch(error => {
+                console.log("error posting payload", error)
+            })
+
+
+        // put request
+        const updatedData = { name: 'New Name' };
+        const url3 = 'https://reqres.in/api/users/4'
+        axios.put(url3, updatedData)
+            .then(response => {
+                console.log('User updated:', response.data);
+            })
+            .catch(error => {
+                console.error('Error updating user', error);
+            });
+
+
+
+        // delete request 
+        const url2 = 'https://reqres.in/api/users/2'
+        axios.delete(url2)
+            .then(response => {
+                console.log('User deleted:', response.data);
+            })
+            .catch(error => {
+                console.error('Error deleting user', error);
+            });
+
+
+
+    </script>
+
+
+</body>
+
+</html>
